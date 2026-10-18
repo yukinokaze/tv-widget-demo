@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="TradingView Advanced Chart widget embedding demo.">
+  <title>TradingView Widget Demo</title>
+  <style>
+    :root { color-scheme: dark; font-family: system-ui, -apple-system, sans-serif; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: #10141f; color: #e8edf7; }
+    header { padding: 18px 24px; border-bottom: 1px solid #30394b; }
+    h1 { margin: 0 0 8px; font-size: 1.25rem; }
+    p { margin: 0; color: #aebbd0; font-size: .9rem; }
+    main { padding: 16px; }
+    .chart { height: min(78vh, 920px); min-height: 440px; border: 1px solid #30394b; border-radius: 10px; overflow: hidden; background: #151a26; }
+    .tradingview-widget-container { height: 100%; width: 100%; }
+    .tradingview-widget-container__widget { height: calc(100% - 32px); width: 100%; }
+    .tradingview-widget-copyright { height: 32px; display: flex; align-items: center; justify-content: center; font-size: 12px; }
+    a { color: #8fbaff; }
+    footer { padding: 0 18px 20px; font-size: 12px; color: #aebbd0; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>TradingView Widget Demo</h1>
+    <p>Advanced Chart の埋め込み動作確認用デモ。銘柄や時間足はチャート上から変更できます。</p>
+  </header>
+  <main>
+    <section class="chart" aria-label="TradingViewチャート">
+      <!-- TradingView Widget BEGIN -->
+      <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <div class="tradingview-widget-copyright">
+          <a href="https://www.tradingview.com/symbols/NASDAQ-AAPL/" target="_blank" rel="noopener noreferrer">AAPL chart by TradingView</a>
+        </div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+        {
+          "autosize": true,
+          "symbol": "NASDAQ:AAPL",
+          "interval": "15",
+          "timezone": "Asia/Tokyo",
+          "theme": "dark",
+          "style": "1",
+          "locale": "ja",
+          "allow_symbol_change": true,
+          "hide_top_toolbar": false,
+          "hide_side_toolbar": false,
+          "withdateranges": true,
+          "save_image": true,
+          "calendar": false,
+          "support_host": "https://www.tradingview.com"
+        }
+        </script>
+      </div>
+      <!-- TradingView Widget END -->
+    </section>
+  </main>
+  <footer>Chart content is served by TradingView. Data availability and features depend on TradingView.</footer>
+</body>
+</html>
